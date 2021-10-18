@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+}
+
+body{
+    overflow-x: hidden;
+    background: rgb(110, 197, 219);
+    
+   
+}
+
+nav{
+    background:rgb(229, 128, 150);
+    height: 5vh;
+}
+
+ul{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+padding: 5px;
+
+}
+
+li{
+    list-style: none;
+}
+
+
+nav a{
+    color: black;
+}
+
+nav a:hover{
+    color: white;
+}

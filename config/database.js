@@ -1,6 +1,6 @@
 // config/database.js
 module.exports = {
 
-    'url' : 'mongodb+srv://samekh:Jeanie931@21savage.xlrtw.mongodb.net/demo?retryWrites=true&w=majority', 
-    'dbName': 'demo'
+    'url' : 'mongodb+srv://youtubelesson:shadae3315@cluster0.6mfvb.mongodb.net/playlistapp?retryWrites=true&w=majority', 
+    'dbName': 'playlistapp'
 };
