@@ -62,6 +62,10 @@ nav a:hover{
     margin-bottom: 25px;
 }
 
+.colorText{
+    color: rgb(229, 128, 150);;
+}
+
 button {
     background: transparent; outline: none;
     position: relative;
