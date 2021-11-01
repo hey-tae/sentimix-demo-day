@@ -30,28 +30,10 @@
 
 
   <section class="uploadSong">
-    <div class="form">
-      <form>
-          <label> Your name:<br />
-              <input type='text' class="profile-name" placeholder="Your Name"> </label>
-          <label>Upload Profile VoiceNote:<br />
-              <input type='file' accept="audio/*" placeholder="" class="profile-aud">
-          </label>
-          <button type="submit">Add Track</button>
-      </form>
-  </div>
-
-  <script src="/index.js"></script>
-
-
-  <div>
-      <div class='box'></div>
-      <div class='box'></div>
-      <div class='box'></div>
-  </div>
-
-
+    <div><label for="audio-upload">Upload an audio file:</label></div>
+    <div><input id="audio-upload" type="file" /></div>
   </section>
+
   	<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
   	<script src="/recorder.js"></script>
   </body>
