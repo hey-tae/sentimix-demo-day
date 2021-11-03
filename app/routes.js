@@ -8,8 +8,12 @@ module.exports = function(app, passport, db) {
     });
 
 // load recorder page
-app.get('/recorder', function(req, res) {
+app.get('/record', function(req, res) {
   res.render('recorder.ejs');
+});
+
+app.get('/uploader', function(req, res) {
+  res.render('uploader.ejs');
 });
 
     // PROFILE SECTION =========================
