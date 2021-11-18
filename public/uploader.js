@@ -1,4 +1,3 @@
-//audio upload 
 function changeHandler({
 	target
   }) {
@@ -17,8 +16,7 @@ function changeHandler({
 	});
   
 	// Append the audio element
-	document.body.h3.appendChild(audio);
-  
+	document.body.appendChild(audio);
 	// Allow us to control the audio
 	audio.controls = "true";
   

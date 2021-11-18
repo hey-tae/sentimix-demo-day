@@ -1,6 +1,3 @@
-*{
-    background: white;
-}
 
 
 
@@ -32,4 +29,5 @@ input{
 
 label{
 font-weight: bold;
+font-style: italic;
 }
