@@ -17,7 +17,7 @@ function changeHandler({
 	});
   
 	// Append the audio element
-	document.body.appendChild(audio);
+	document.body.h3.appendChild(audio);
   
 	// Allow us to control the audio
 	audio.controls = "true";
