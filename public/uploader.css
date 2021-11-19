@@ -1,13 +1,22 @@
+*{
+    background: white;
+}
+
+
+
 body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin: 0; */
+   
     height: 70vh;
-    background: rgb(110,197,219);
+   
     
 }
+
+/* need to think about styling for this page */
+
 
 p{
     color: rgb(229,128,150);
