@@ -18,6 +18,12 @@ a {
       overflow-wrap: break-word;
       color:black;
       margin:2em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
   }
   
   h1 {
@@ -35,6 +41,10 @@ a {
       text-transform: uppercase;
   }
   
+p{
+  width: 75%;
+}
+
   red {
       color: red;
   }
