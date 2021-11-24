@@ -7,6 +7,11 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
+// load recorder page
+app.get('/recorder', function(req, res) {
+  res.render('recorder.ejs');
+});
+
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
         db.collection('messages').find().toArray((err, result) => {
@@ -128,3 +133,4 @@ function isLoggedIn(req, res, next) {
 
     res.redirect('/');
 }
+

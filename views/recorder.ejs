@@ -7,9 +7,11 @@
 
     <!-- Latest compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/recorder/style.css">
+    <link rel="stylesheet" type="text/css" href="/recorder.css">
   </head>
   <body>
+
+    <section class="record"></section>
     <h1>Record Your Note</h1>
     <p>Here you can record your voice memos which can be added to your existing playlist. 
         Press "Record" to begin. Once you are finished press "Stop". If for any reason you need to pause you may press "Pause/Resume" when ready. 
@@ -24,7 +26,33 @@
   	<p><strong>Recordings:</strong></p>
   	<ol id="recordingsList"></ol>
     <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+  </section>
+
+
+  <section class="uploadSong">
+    <div class="form">
+      <form>
+          <label> Your name:<br />
+              <input type='text' class="profile-name" placeholder="Your Name"> </label>
+          <label>Upload Profile VoiceNote:<br />
+              <input type='file' accept="audio/*" placeholder="" class="profile-aud">
+          </label>
+          <button type="submit">Add Track</button>
+      </form>
+  </div>
+
+  <script src="/index.js"></script>
+
+
+  <div>
+      <div class='box'></div>
+      <div class='box'></div>
+      <div class='box'></div>
+  </div>
+
+
+  </section>
   	<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
-  	<script src="/recorder/recorder.js"></script>
+  	<script src="/recorder.js"></script>
   </body>
 </html>
