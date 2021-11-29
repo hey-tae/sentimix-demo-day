@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist</title>
+</head>
+<body>
+    <ul class="messages">
+        <% for(var i=0; i<audioFiles.length; i++) {%>
+          <li class="audio">
+            <span><%= audioFiles[i].title %></span>
+            <span><%= audioFiles[i].type %></span>
+            <audio controls="controls" autobuffer="autobuffer">
+                <source src="data:audio/wav;base64,<%=audioFiles[i].audioData.toString('base64')%>" />
+            </audio>
+            <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+            <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+            <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+            
+          </li>
+        <% } %>
+    
+        </ul>
+    
+
+</body>
+</html>

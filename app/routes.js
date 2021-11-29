@@ -1,5 +1,24 @@
-module.exports = function(app, passport, db) {
+const { ObjectId } = require('bson');
 
+module.exports = function(app, passport, db) {
+  const fs = require('fs');
+  const path = require('path');
+  const ObjectID = require('mongodb').ObjectID
+  const multer = require('multer');
+  
+  var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: (req, file, cb) => {
+        // cb(null, file.fieldname + '-' + Date.now())
+        cb(null, file.originalname)
+        console.log('multer file', file)
+
+    }
+});
+  
+var upload = multer({ storage: storage });
 // normal routes ===============================================================
 
     // show the home page (will also have our login links)
@@ -8,13 +27,53 @@ module.exports = function(app, passport, db) {
     });
 
 // load recorder page
-app.get('/record', function(req, res) {
-  res.render('recorder.ejs');
+app.get('/record',isLoggedIn, function(req, res) {
+  db.collection('playlists').find({owner: req.user._id}).sort( { date: -1 } ).toArray((err, audioFiles) => {
+    if (err) return console.log(err)
+    console.log('playlist length', audioFiles.length)
+    res.render('recorder.ejs', {
+      user : req.user,
+      audioFiles: audioFiles
+    })
+  })
 });
 
 app.get('/uploader', function(req, res) {
   res.render('uploader.ejs');
 });
+
+
+//player
+app.get('/player/:id',function(req, res) {
+  db.collection('playlists').find({owner: ObjectId(req.params.id)}).sort( { date: -1 } ).toArray((err, audioFiles) => {
+    if (err) return console.log(err)
+    res.render('player.ejs', {
+      user : req.user,
+      audioFiles: audioFiles
+    })
+  })
+});
+
+// upload audio to server 
+app.post('/upload',[isLoggedIn, upload.single('audio_data')], function(req, res) {
+  const audioData = fs.readFileSync(path.join(__dirname + '/../uploads/' + req.file.filename))
+  console.log(audioData.length, req.file.filename)
+  console.log(req.body.type)
+  console.log(req.body)
+  db.collection('playlists').save({
+    audioData: audioData,
+    type: req.body.type ? req.body.type : 'sentiment',
+    owner: req.user._id,
+    title: req.file.filename,
+    date: new Date()
+
+  }, (err, result) => {
+    if (err) return console.log(err)
+    console.log('saved to database')
+    res.redirect('/record')
+  })
+});
+
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {

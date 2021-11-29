@@ -9,6 +9,9 @@ function changeHandler({
   
 	// Create an audio element
 	const audio = document.createElement("audio");
+	const input = document.createElement('input')
+	input.type = 'text'
+	input.name = 'title'
   
 	// Clean up the URL Object after we are done with it
 	audio.addEventListener("load", () => {
@@ -16,7 +19,8 @@ function changeHandler({
 	});
   
 	// Append the audio element
-	document.body.appendChild(audio);
+	document.getElementById('audioForm').appendChild(audio);
+
 	// Allow us to control the audio
 	audio.controls = "true";
   
