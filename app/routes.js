@@ -132,10 +132,11 @@ app.post('/upload',[isLoggedIn, upload.single('audio_data')], function(req, res)
       })
     })
 
-    app.delete('/messages', (req, res) => {
-      db.collection('messages').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
+    app.delete('/deletePlaylist', (req, res) => {
+      const title = ObjectID(req.body.title)
+      db.collection('playlists').findOneAndDelete({_id: title}, (err, result) => {
         if (err) return res.send(500, err)
-        res.send('Message deleted!')
+        res.send('song deleted!')
       })
     })
 
