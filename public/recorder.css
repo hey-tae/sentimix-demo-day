@@ -22,6 +22,7 @@ a {
       flex-direction: row; 
       
       
+      
 
       
       
@@ -30,12 +31,11 @@ a {
   
 
 
-  .record .upload{
-    width: 50%;
+  .record{
+    width: 48%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
  
   }
 
@@ -58,6 +58,8 @@ a {
   
 p{
   width: 75%;
+  margin-block-end: 0;
+  margin-block-start: 0;
 }
 
   red {
@@ -76,9 +78,7 @@ p{
   max-width: 28em;
 }
 
-.uploadList{
-  margin-top: 15px;
-}
+
 .preview{
   display: flex;
   flex-direction: row;

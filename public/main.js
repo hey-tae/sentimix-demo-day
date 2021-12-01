@@ -5,7 +5,7 @@ Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
         const title = this.getAttribute('data-id')
         console.log(title)
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
+        console.log('This is the parent node: ', this.parentNode.parentNode) 
         fetch('deletePlaylist', {
           method: 'delete',
           headers: {

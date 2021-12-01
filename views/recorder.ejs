@@ -14,7 +14,7 @@
 
     <section class="record">
       
-    <h1>Add A Sentiment</h1>
+    <h1>Record A Sentiment</h1>
     <p>Here you can record your voice memos which can be added to your existing playlist. 
         Press "Record" to begin. Once you are finished press "Stop". If for any reason you need to pause you may press "Pause/Resume" when ready. 
      </p>
@@ -28,27 +28,31 @@
   	<!-- <p><strong>Recordings:</strong></p> -->
   	<ol id="recordingsList"></ol>
     <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+
+    <section class="upload">
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+      
+        <h1>Upload a Track</h1>
+        <p>Upload any .mp3 or .wav track from your computer. Not sure where to get a track? Try copying a video url into <a href="http://dirpy.com" target="_blank">Dirpy.com</a> to download one. 
+       </p>
+    
+      <input type="file" name="audio_data">
+        <button id="uploadSubmit" type="submit">Upload Track</button>
+    <input type="hidden" name='type' value="song">
+      </form>
+    
+    </section>
   </section>
 
   	<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
   	<script src="/recorder.js"></script>
 
-    <section class="upload">
-  <form action="/upload" method="POST" enctype="multipart/form-data">
-  
-    <h1>Upload a Track</h1>
-    <p>Upload any .mp3 or .wav track from your computer. Not sure where to get a track? Try copying a video url into <a href="http://dirpy.com" target="_blank">Dirpy.com</a> to download one. 
-   </p>
+   
 
-  <input type="file" name="audio_data">
-    <button id="uploadSubmit" type="submit">Upload Track</button>
-<input type="hidden" name='type' value="song">
-  </form>
-
- 
 <section class="uploadList">
-
-
+  <h1>Playlist</h1>
+  <p>Edit & Share your playlist with the person it is meant for. You can also save your playlist to your profile to listen to it later! 
+ </p>
 
   <ul class="messages">
     <% for(var i=0; i<audioFiles.length; i++) {%>
@@ -77,9 +81,6 @@
 
       document.getElementById('playlistUrl').innerHTML = window.location.href + '/../player/<%= user._id%>'
     </script>
-
-</section>
-
 
 </section>
     <script src="main.js"></script>
