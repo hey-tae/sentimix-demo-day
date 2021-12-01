@@ -12,7 +12,8 @@
   </head>
   <body>
 
-    <section class="record"></section>
+    <section class="record">
+      
     <h1>Add A Sentiment</h1>
     <p>Here you can record your voice memos which can be added to your existing playlist. 
         Press "Record" to begin. Once you are finished press "Stop". If for any reason you need to pause you may press "Pause/Resume" when ready. 
@@ -32,38 +33,55 @@
   	<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
   	<script src="/recorder.js"></script>
 
+    <section class="upload">
   <form action="/upload" method="POST" enctype="multipart/form-data">
   
-  <label >Upload A Track</label>
+    <h1>Upload a Track</h1>
+    <p>Upload any .mp3 or .wav track from your computer. Not sure where to get a track? Try copying a video url into <a href="http://dirpy.com" target="_blank">Dirpy.com</a> to download one. 
+   </p>
+
   <input type="file" name="audio_data">
-    <button type="submit">Upload Track</button>
+    <button id="uploadSubmit" type="submit">Upload Track</button>
 <input type="hidden" name='type' value="song">
   </form>
 
-  
-<a href="/player/<%=user._id%>"><span id="playlistUrl"></span></a>
+ 
+<section class="uploadList">
+
+
 
   <ul class="messages">
     <% for(var i=0; i<audioFiles.length; i++) {%>
       <li class="audio">
         <span><%= audioFiles[i].title %></span>
-        <span><%= audioFiles[i].type %></span>
-        <audio controls="controls" autobuffer="autobuffer">
+        
+        <section class="preview">
+           <audio controls="controls" autobuffer="autobuffer">
             <source src="data:audio/wav;base64,<%=audioFiles[i].audioData.toString('base64')%>" />
+            
         </audio>
-       
+       <div class="trash">
         <span><i class="fa fa-trash" data-id= "<%= audioFiles[i]._id %>" ></i></span>
+</div>
+        </section>
+       
         
       </li>
     <% } %>
 
     </ul>
-    
+    <span class="share">Share Your Playlist</span>
+  <a href="/player/<%=user._id%>"><span id="playlistUrl"></span></a>
+
     <script>
 
       document.getElementById('playlistUrl').innerHTML = window.location.href + '/../player/<%= user._id%>'
     </script>
 
+</section>
+
+
+</section>
     <script src="main.js"></script>
 
   </body>
